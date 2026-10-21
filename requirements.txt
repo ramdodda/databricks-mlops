@@ -1,5 +1,5 @@
-pyspark
 mlflow
-scikit-learn
 pandas
+scikit-learn
+PyYAML
 pytest
