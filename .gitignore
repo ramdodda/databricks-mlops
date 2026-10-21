@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Data and model artifacts
+data/
+models/
+*.joblib
+*.pkl
+*.model
+
+# IDE and logs
+.vscode/
+.idea/
+*.log
