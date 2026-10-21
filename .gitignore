@@ -25,3 +25,12 @@ models/
 .vscode/
 .idea/
 *.log
+
+# Local MLflow tracking and artifacts
+mlflow.db
+mlflow.db-shm
+mlflow.db-wal
+mlruns/
+
+# Local datasets
+data/

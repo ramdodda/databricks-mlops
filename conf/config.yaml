@@ -4,9 +4,11 @@ project:
 
 data:
   path: data/customer_churn.csv
-  target_column: churn
+  target_column: Churn
   feature_columns:
-    - salary
+    - tenure
+    - MonthlyCharges
+    - TotalCharges
 
 training:
   model_type: LogisticRegression
