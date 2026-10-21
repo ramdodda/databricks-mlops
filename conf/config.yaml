@@ -1,0 +1,19 @@
+project:
+  name: customer-churn-mlops
+  environment: development
+
+data:
+  path: data/customer_churn.csv
+  target_column: churn
+  feature_columns:
+    - salary
+
+training:
+  model_type: LogisticRegression
+  test_size: 0.2
+  random_state: 42
+  max_iter: 1000
+
+mlflow:
+  experiment_name: /Shared/customer-churn-experiment
+  model_name: customer_churn_model
