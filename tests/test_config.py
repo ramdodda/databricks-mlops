@@ -1,3 +1,4 @@
+
 from customer_churn.train import load_config
 
 
@@ -20,5 +21,16 @@ def test_config_has_valid_training_settings():
 def test_config_has_churn_feature_and_target():
     config = load_config()
 
-    assert config["data"]["feature_columns"] == ["salary"]
-    assert config["data"]["target_column"] == "churn"
+    assert config["data"]["target_column"] == "Churn"
+
+    assert config["data"]["numeric_features"] == [
+        "tenure",
+        "MonthlyCharges",
+        "TotalCharges",
+    ]
+
+    assert config["data"]["categorical_features"] == [
+        "Contract",
+        "InternetService",
+        "PaymentMethod",
+    ]

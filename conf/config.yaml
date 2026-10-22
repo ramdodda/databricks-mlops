@@ -1,3 +1,4 @@
+
 project:
   name: customer-churn-mlops
   environment: development
@@ -5,10 +6,14 @@ project:
 data:
   path: data/customer_churn.csv
   target_column: Churn
-  feature_columns:
+  numeric_features:
     - tenure
     - MonthlyCharges
     - TotalCharges
+  categorical_features:
+    - Contract
+    - InternetService
+    - PaymentMethod
 
 training:
   model_type: LogisticRegression
