@@ -1,5 +1,4 @@
-
-name: Python CI
+name: Customer Churn MLOps CI
 
 on:
   push:
@@ -7,8 +6,12 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   test:
+    name: Unit and API Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -19,11 +22,15 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
 
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
 
-      - name: Run unit tests
+      - name: Run tests
         env:
           PYTHONPATH: src
         run: python -m pytest -v
