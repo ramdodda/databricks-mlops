@@ -1,3 +1,4 @@
+
 name: Customer Churn MLOps CI
 
 on:
@@ -34,3 +35,22 @@ jobs:
         env:
           PYTHONPATH: src
         run: python -m pytest -v
+
+  security-scan:
+    name: Trivy Filesystem Security Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Scan dependencies and repository
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,misconfig,secret
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          format: table
+          exit-code: "0"
